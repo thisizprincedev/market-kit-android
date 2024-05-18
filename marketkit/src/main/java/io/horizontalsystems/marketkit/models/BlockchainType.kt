@@ -26,6 +26,9 @@ sealed class BlockchainType : Parcelable {
     object Ethereum : BlockchainType()
 
     @Parcelize
+    object DotBlox : BlockchainType()
+
+    @Parcelize
     object BinanceSmartChain : BlockchainType()
 
     @Parcelize
@@ -64,6 +67,7 @@ sealed class BlockchainType : Parcelable {
     val uid: String
         get() = when (this) {
             is Bitcoin -> "bitcoin"
+            is DotBlox -> "dotblox"
             is BitcoinCash -> "bitcoin-cash"
             is ECash -> "ecash"
             is Litecoin -> "litecoin"
@@ -94,6 +98,7 @@ sealed class BlockchainType : Parcelable {
 
     override fun toString() = when (this) {
         Bitcoin -> "bitcoin"
+        DotBlox -> "dotblox"
         BitcoinCash -> "bitcoinCash"
         ECash -> "ecash"
         Litecoin -> "litecoin"
@@ -117,27 +122,28 @@ sealed class BlockchainType : Parcelable {
     companion object {
 
         fun fromUid(uid: String): BlockchainType =
-            when (uid) {
-                "bitcoin" -> Bitcoin
-                "bitcoin-cash" -> BitcoinCash
-                "ecash" -> ECash
-                "litecoin" -> Litecoin
-                "dash" -> Dash
-                "zcash" -> Zcash
-                "ethereum" -> Ethereum
-                "binance-smart-chain" -> BinanceSmartChain
-                "binancecoin" -> BinanceChain
-                "polygon-pos" -> Polygon
-                "avalanche" -> Avalanche
-                "optimistic-ethereum" -> Optimism
-                "arbitrum-one" -> ArbitrumOne
-                "solana" -> Solana
-                "gnosis" -> Gnosis
-                "fantom" -> Fantom
-                "tron" -> Tron
-                "the-open-network" -> Ton
-                else -> Unsupported(uid)
-            }
+                when (uid) {
+                    "bitcoin" -> Bitcoin
+                    "dotblox" -> DotBlox
+                    "bitcoin-cash" -> BitcoinCash
+                    "ecash" -> ECash
+                    "litecoin" -> Litecoin
+                    "dash" -> Dash
+                    "zcash" -> Zcash
+                    "ethereum" -> Ethereum
+                    "binance-smart-chain" -> BinanceSmartChain
+                    "binancecoin" -> BinanceChain
+                    "polygon-pos" -> Polygon
+                    "avalanche" -> Avalanche
+                    "optimistic-ethereum" -> Optimism
+                    "arbitrum-one" -> ArbitrumOne
+                    "solana" -> Solana
+                    "gnosis" -> Gnosis
+                    "fantom" -> Fantom
+                    "tron" -> Tron
+                    "the-open-network" -> Ton
+                    else -> Unsupported(uid)
+                }
 
     }
 
