@@ -628,13 +628,13 @@ class HsProvider(baseUrl: String, apiKey: String) {
         @GET("status/updates")
         fun getStatus(): Single<HsStatus>
 
-        @GET("coins/list")
+        @GET("https://raw.githubusercontent.com/thisizprincedev/cryptocurrencies/master/coins-all.json")
         fun getAllCoins(): Single<List<CoinResponse>>
 
         @GET("https://raw.githubusercontent.com/thisizprincedev/cryptocurrencies/master/blockchains.json")
         fun getAllBlockchains(): Single<List<BlockchainResponse>>
 
-        @GET("tokens/list")
+        @GET("https://raw.githubusercontent.com/thisizprincedev/cryptocurrencies/master/tokens.json")
         fun getAllTokens(): Single<List<TokenResponse>>
 
         @GET("auth/get-sign-message")
