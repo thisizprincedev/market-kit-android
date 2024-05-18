@@ -631,7 +631,7 @@ class HsProvider(baseUrl: String, apiKey: String) {
         @GET("coins/list")
         fun getAllCoins(): Single<List<CoinResponse>>
 
-        @GET("blockchains/list")
+        @GET("https://raw.githubusercontent.com/thisizprincedev/cryptocurrencies/master/blockchains.json")
         fun getAllBlockchains(): Single<List<BlockchainResponse>>
 
         @GET("tokens/list")
